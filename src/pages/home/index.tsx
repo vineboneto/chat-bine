@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react'
-import { Container } from './styles'
 import { useNavigate } from 'react-router-dom'
-import { useChatContext } from '../../context'
+import { useChatContext } from '@/context'
+import { Container } from './styles'
 
 export default function Home() {
   const navigate = useNavigate()

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
-import ChatMessage from '../../components/chat-message'
-import { useChatContext } from '../../context/'
+import ChatMessage from '@/components/chat-message'
+import { useChatContext } from '@/context/'
 import { Container } from './styles'
 
 export default function Chat() {
