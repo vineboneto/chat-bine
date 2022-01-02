@@ -29,6 +29,7 @@ io.on("connection", (socket) => {
       text: data.message,
       createdAt: new Date(),
     };
+    console.log("Emit");
     messages.push(message);
     io.emit("message", message);
   });
