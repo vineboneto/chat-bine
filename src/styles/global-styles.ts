@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 30px;
     font-weight: 300;
     align-self: center;
-    color: #fff;
+    color: #e8e6e3;
   }
 
   input {

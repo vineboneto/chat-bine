@@ -5,7 +5,7 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 15px 0;
 
-  border-bottom: 1px solid #e8e6e3;
+  border-bottom: 1px solid #373c3e;
 
   .message {
     color: #e8e6e3;
