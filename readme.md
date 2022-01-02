@@ -1,3 +1,3 @@
-## Chat do Bine
+### About
 
-Estudando formar de criar um chat com socket.io
+My chat

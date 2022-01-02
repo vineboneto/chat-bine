@@ -1,43 +1,40 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ChatMessage from '../../components/chat-message'
 import { useChatContext } from '../../context/'
 import { Container } from './styles'
 
 export default function Chat() {
-  const { username, socket } = useChatContext()
+  const { getUsername, socket } = useChatContext()
 
   const [message, setMessage] = useState('')
   const [allMessage, setAllMessage] = useState([])
+
   const loadAllOldMessages = (messages) => {
     console.log(messages)
     setAllMessage(messages)
   }
 
-  useEffect(() => {
+  const connectUser = useCallback(() => {
     socket.emit(
       'connect_user',
       {
-        username,
+        username: getUsername(),
       },
       loadAllOldMessages
     )
-    return () => {
-      socket.emit(
-        'connect_user',
-        {
-          username,
-        },
-        loadAllOldMessages
-      )
-    }
-  }, [socket, username])
+  }, [getUsername, socket])
+
+  useEffect(() => {
+    connectUser()
+    return () => connectUser()
+  }, [connectUser])
 
   const senMessage = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault()
       console.log('SEND MESSAGE')
       socket.emit('message', {
-        username,
+        username: getUsername(),
         message,
       })
 
@@ -62,7 +59,7 @@ export default function Chat() {
         </div>
         <input
           type="text"
-          placeholder={`Escreva uma mensagem ${username}`}
+          placeholder={`Escreva uma mensagem ${getUsername()}`}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           id="message_input"
