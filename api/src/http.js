@@ -8,6 +8,10 @@ const app = express();
 
 app.use(cors());
 
+app.get("/test", (req, res) => {
+  res.status(200).json({ ok: "Hello World", port: process.env.PORT || 5000 });
+});
+
 const serverHttp = http.createServer(app);
 
 const io = new Server(serverHttp, {

@@ -14,8 +14,10 @@ type Props = {
 }
 
 export function ChatContextProvider({ children }: Props) {
-  console.log(process.env.REACT_APP_NODE_SERVER)
-  const socket = io(process.env.REACT_APP_NODE_SERVER)
+  const socket = io(process.env.REACT_APP_NODE_SERVER, {
+    transports: ['websocket', 'polling', 'flashsocket'],
+    autoConnect: false,
+  })
 
   const [username, setUsername] = useState('')
 
