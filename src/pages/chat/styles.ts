@@ -12,7 +12,7 @@ export const Container = styled.div`
 
   .chat {
     width: 600px;
-    border: 1px solid #181a1b;
+    border: 1px solid #847a6c;
     padding: 20px;
     border-radius: 8px;
   }
