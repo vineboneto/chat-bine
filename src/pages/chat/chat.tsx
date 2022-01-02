@@ -10,7 +10,6 @@ export default function Chat() {
   const [allMessage, setAllMessage] = useState([])
 
   const loadAllOldMessages = (messages) => {
-    console.log(messages)
     setAllMessage(messages)
   }
 
@@ -32,7 +31,6 @@ export default function Chat() {
   const senMessage = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault()
-      console.log('SEND MESSAGE')
       socket.emit('message', {
         username: getUsername(),
         message,
@@ -45,7 +43,6 @@ export default function Chat() {
   }
 
   socket.on('message', (data) => {
-    console.log('AQUI')
     setAllMessage([...allMessage, data])
   })
 

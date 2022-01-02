@@ -19,7 +19,6 @@ export function ChatContextProvider({ children }: Props) {
   })
 
   const setStorageUserName = (username: string) => {
-    console.log(username)
     localStorage.setItem('chat.bine.username', JSON.stringify(username))
   }
 

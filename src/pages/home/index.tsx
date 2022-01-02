@@ -7,7 +7,6 @@ export default function Home() {
   const navigate = useNavigate()
   const { setUsername } = useChatContext()
   const [user, setUser] = useState('')
-  console.log(process.env.REACT_APP_NODE_SERVER)
 
   const navigationChat = (e: FormEvent) => {
     e.preventDefault()
